@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color:slategray;
+        }
+
+        .LST {
+            list-style-type:lower-roman;
+        }
+
+        .LSP_LSI {
+            list-style-position: inside;                /* 序号在文本内or外 */
+            list-style-image:url(images/图标.jpg);      /* 把序号变成图片 */            
+        }
+
+        .LS {
+            list-style:none;   /* 复合属性，lst lsp lsi的顺序。一般用none清除列表默认样式*/
+        }
+
+        table{
+            border: 1px rgb(0, 0, 0);               /* 边框属性 */
+            /* border-collapse: collapse;             设置边框合并，感觉没用*/
+        }
+    </style>
+</head>
+<body>
+
+    <vis>表格</vis>
+                    <!-- 外边框宽     cell内边距       cell的间距        -->     <!-- 还可以设置bgcolor和background -->
+    <table align="center" border="1" cellpadding="10" cellspacing="0" width="400" height="200">
+        <thead>
+            <tr>    <!-- tr可设置的属性，见课本P139（如内容的对齐方式） -->
+                <th>name</th><th>HP</th><th>物攻</th><th>物防</th><th>特攻</th><th>特防</th><th>速度</th>            
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <!-- td可设置的属性，见课本P141 -->
+                <td rowspan="2"> <!-- 竖跨几行  -->
+                    <img src="https://media.52poke.com/wiki/7/7e/006Charizard.png" height="200"> </td>
+                <td>78</td><td>84</td><td>78</td><td>109</td><td>85</td><td>100</td>
+            </tr>
+            <tr>                
+                <td colspan="7"><!-- 横跨几列 -->总和:534 </td>   
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- 关于表单属性，课本P149。      关于表单控件，课本P150        关于表单控件属性，课本P158   -->      
+                    <!--     ↓提交方式      -->                <!-- novalidate取消表单验证 -->
+    <form action="（服务器）" method="get" name="这个是表单名字">         <!-- ↓自动填写 -->
+        上传头像：<input type="file"              value="可上传jpg图片"   autocomplete="on" />         <br />  
+        用户名：  <input type="text"   name="u_n" value="你的名字是XX" maxlength="10" style="color:gray"/>     <br />       
+        密码：&nbsp;&nbsp;&nbsp;&nbsp;<input type="password"          maxlength="14"/>(最大长度14)   <br />            
+        性别：    <input type="radio"  name="sex" value="男" id="an"/><label for="an">男</label>  
+                 <input type="radio"  name="sex" value="女" id="v"/>  <label for="v">女</label>     <br />
+        学院：
+        <select>            
+            <option>獾院</option><option>鹰院</option><option>蛇院</option><option>狮院</option>
+            <option selected="selected">无</option>
+        </select>
+        <input type="button" value="发送验证码"/>          <br />
+        报考科目： 文科<input type="checkbox" name="k" value="1"/>  
+                  理科<input type="checkbox" name="k" value="2"/>     <br />
+        种族值：<input type="range" min="1" max="999" step="1"/>       <br />
+        留言：<textarea cols="每行多少字" rows="显示的行数">这里是textarea标签</textarea>                 <br />
+        <input input type="checkbox" checked="checked" />《XXX协议》   <br />
+        <input type="reset"  value="重新填写"/> 
+        <input type="submit" value="提交信息"/>     <br />
+        
+        <input type="date" />
+    </form>
+
+    <form action="#"   method="get"   id="fr_id">
+        <datalist id="dl_id">
+            <option label="B站" value="https://www.bilibili.com/"></option>
+            <option label="神百" value="https://wiki.52poke.com/wiki/%E4%B8%BB%E9%A1%B5"></option>
+        </datalist>
+        <input type="text" list="dl_id">
+    </form>              <!-- ↑获取list -->
+
+                                 <!--  ↓使表单外input也提交到此from  -->
+    <input type="text"  autofocus      form="fr_id">
+                 <!--  ↑自动获得光标焦点  -->
+
+    <ul>
+        <li>这是无序列表</li>
+        <li>只能放一种标签:&lt;li&gt;</li>
+        <li>计算机组成原理</li>
+        <li>数据结构</li>
+        <li>离散数学</li>
+        <li>线性代数</li>
+        <li type="circle">type为circle</li>
+        <li type="square">type为square</li>
+        <li type="disc">默认type值</li>
+    </ul>
+
+    <ol>
+        <li>这次是有序列表</li>
+        <li>www.w3school.com.cn</li>
+        <li>B</li>
+        <li>见课本P121,有序号、起始值等属性设置</li>
+    </ol>
+    
+    <dl>
+        <dt>这是自定义列表</dt>
+        <dd>A</dd>
+        <dd>B</dd>
+    </dl>
+
+    <ol class="LST">
+        <li>list-style-type属性值</li>
+        <li>见课本P124</li>
+        <li>一号</li>
+        <li>二号</li>
+        <li>三号</li>
+        <li>四号</li>
+    </ol>
+
+    <ol class="LSP_LSI">
+        <li>一一号</li>
+        <li>二二号</li>
+        <li>三三号</li>
+        <li>四四号</li>
+    </ol>
+</body>
+</html>
